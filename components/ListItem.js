@@ -5,10 +5,10 @@ const ListItem = ({
   name,
   symbol,
   currentPrice,
-  priceChangePercentage7d,
+  priceChangePercentage24h,
   logoUrl,
 }) => {
-  const priceChangeColor = priceChangePercentage7d > 0 ? "#3AC759" : "#FF3B30";
+  const priceChangeColor = priceChangePercentage24h > 0 ? "#3AC759" : "#FF3B30";
   return (
     <TouchableOpacity>
       <View style={styles.itemWrapper}>
@@ -30,7 +30,7 @@ const ListItem = ({
             ${currentPrice.toLocaleString("en-US", { curreny: "USD" })}
           </Text>
           <Text style={[styles.subTitle, { color: priceChangeColor }]}>
-            {priceChangePercentage7d.toFixed(2)}%
+            {priceChangePercentage24h.toFixed(2)}%
           </Text>
         </View>
       </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
+    color: "white"
   },
   subTitle: {
     fontSize: 14,

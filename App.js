@@ -10,14 +10,14 @@ export default function App() {
   useEffect(() => {
     const fetchMarketData = async () => {
       const marketData = await getMarketData();
-      setData(marketData)
-    }
+      setData(marketData);
+    };
     fetchMarketData();
-  })
+  });
   return (
     <View style={styles.container}>
       <View style={styles.titleWrapper}>
-        <Text style={styles.largeTitle}>Markets</Text>
+        <Text style={styles.largeTitle}>Crypto Coins</Text>
       </View>
       <View style={styles.divider} />
 
@@ -29,8 +29,8 @@ export default function App() {
             name={item.name}
             symbol={item.symbol}
             currentPrice={item.current_price}
-            priceChangePercentage7d={
-              item.price_change_percentage_7d_in_currency
+            priceChangePercentage24h={
+              item.price_change_percentage_24h_in_currency
             }
             logoUrl={item.image}
           />
@@ -43,15 +43,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "black",
   },
   titleWrapper: {
     marginTop: 80,
     paddingHorizontal: 60,
+    alignItems: "center",
   },
   largeTitle: {
     fontSize: 24,
     fontWeight: "bold",
+    color: "white",
   },
   divider: {
     height: StyleSheet.hairlineWidth,
