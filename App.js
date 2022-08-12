@@ -2,8 +2,18 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import ListItem from "./components/ListItem";
 import { SAMPLE_DATA } from "./assets/data/sampleData";
+import React, { useState, useEffect } from "react";
+import { getMarketData } from "./assets/services/cryptoService";
 
 export default function App() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchMarketData = async () => {
+      const marketData = await getMarketData();
+      setData(marketData)
+    }
+    fetchMarketData();
+  })
   return (
     <View style={styles.container}>
       <View style={styles.titleWrapper}>
@@ -13,7 +23,7 @@ export default function App() {
 
       <FlatList
         keyExtractor={(item) => item.id}
-        data={SAMPLE_DATA}
+        data={data}
         renderItem={({ item }) => (
           <ListItem
             name={item.name}
