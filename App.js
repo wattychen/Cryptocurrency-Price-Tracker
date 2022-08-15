@@ -5,6 +5,7 @@ import { SAMPLE_DATA } from "./assets/data/sampleData";
 import React, { useState, useEffect } from "react";
 import { getMarketData } from "./assets/services/cryptoService";
 
+
 export default function App() {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -62,3 +63,5 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
 });
+
+
